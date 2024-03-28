@@ -1,9 +1,10 @@
-import React, {ChangeEvent, memo, useCallback} from "react";
+import React, {memo, useCallback} from "react";
 import {FilterValuesType} from "./App";
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
-import {Button, Checkbox, IconButton} from "@mui/material";
+import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
+import {Task} from "./Task";
 
 type TodolistType = {
    title: string
@@ -92,34 +93,4 @@ export const Todolist = memo((props: TodolistType) => {
       </div>
    )
 })
-type TaskPropsType = {
-   removeTask: (taskId: string, todolistID: string) => void
-   changeTaskStatus: (id: string, isDone: boolean, todolistID: string) => void
-   task: TaskType
-   todolistId: string
-   updateTaskHandler: (tId: string, title: string) => void
-}
-
-const Task = (props: TaskPropsType) => {
-   let onChangeBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-      let newIsDoneValue = e.currentTarget.checked
-      props.changeTaskStatus(props.task.id, newIsDoneValue, props.todolistId)
-   }
-   let removeTaskHandler = () => {
-      props.removeTask(props.task.id, props.todolistId)
-   }
-   return (
-      <li key={props.task.id} className={props.task.isDone ? "is-done" : ""}>
-         <Checkbox
-            color='primary'
-            checked={props.task.isDone}
-            onChange={onChangeBoxHandler}
-         />
-         <EditableSpan title={props.task.title} onClick={(title) => props.updateTaskHandler(props.task.id, title)}/>
-         <IconButton onClick={removeTaskHandler}>
-            <Delete/>
-         </IconButton>
-      </li>
-   )
-}
 
