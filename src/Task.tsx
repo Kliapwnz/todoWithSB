@@ -11,7 +11,7 @@ type TaskPropsType = {
    todolistId: string
    updateTaskHandler: (tId: string, title: string) => void
 }
-export const Task = (props: TaskPropsType) => {
+export const Task = React.memo( (props: TaskPropsType) => {
    let onChangeBoxHandler = (e: ChangeEvent<HTMLInputElement>) => {
       let newIsDoneValue = e.currentTarget.checked
       props.changeTaskStatus(props.task.id, newIsDoneValue, props.todolistId)
@@ -32,4 +32,4 @@ export const Task = (props: TaskPropsType) => {
          </IconButton>
       </li>
    )
-}
+})
