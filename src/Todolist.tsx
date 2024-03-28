@@ -70,10 +70,11 @@ export const Todolist = memo((props: TodolistType) => {
          </div>
          <ul>
             {tasksForTodolist.map(el => <Task
-               removeTask={props.removeTask}
-               changeTaskStatus={props.changeTaskStatus}
-               task={el} todolistId={props.id}
-               updateTaskHandler={updateTaskHandler}
+                  key={el.id}
+                  removeTask={props.removeTask}
+                  changeTaskStatus={props.changeTaskStatus}
+                  task={el} todolistId={props.id}
+                  updateTaskHandler={updateTaskHandler}
                />
             )}
          </ul>
