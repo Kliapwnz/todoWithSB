@@ -6,11 +6,9 @@ export default {
    title: "EditableSpan Component",
    component: EditableSpan
 }
-const changeTaskStatusCallback = action("Status changed")
+const changeCallback = action("Value changed")
 
 
 export const EditableSpanBaseExample = () => {
-   return <>
-
-   </>
+   return <EditableSpan title={"start value"} onClick={changeCallback}/>
 }
