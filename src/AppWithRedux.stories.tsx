@@ -6,8 +6,6 @@ export default {
    title: "AppWithRedux Component",
    component: AppWithRedux
 }
-const changeCallback = action("Value changed")
-
 
 export const AppWithReduxBaseExample = () => {
    return <AppWithRedux/>
