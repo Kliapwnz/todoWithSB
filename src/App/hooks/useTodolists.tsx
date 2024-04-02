@@ -3,8 +3,7 @@ import {todolistID1, todolistID2} from "../id-utils";
 import {FilterValuesType, TodolistsType} from "../App";
 import {v1} from "uuid";
 
-export function useTodolists(tasks: any,
-                             onTodolistRemoved: (id: string) => void,
+export function useTodolists(onTodolistRemoved: (id: string) => void,
                              onTodolistAdded: (id: string) => void) {
    let [todolists, setTodolists] = useState<Array<TodolistsType>>([
       {id: todolistID1, title: 'KLIApwnz', filter: 'all'},

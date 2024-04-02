@@ -35,7 +35,7 @@ function App() {
       removeTodolist,
       addTodolist,
       updateTodolist
-   } = useTodolists(tasks,
+   } = useTodolists(
       completelyRemoveTaskForTodolist,
       addStateForNewTodolist
    )
