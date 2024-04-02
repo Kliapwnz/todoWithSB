@@ -26,7 +26,8 @@ function App() {
       removeTask,
       updateTask,
       changeTaskStatus,
-      completelyRemoveTaskForTodolist
+      completelyRemoveTaskForTodolist,
+      addStateForNewTodolist
    } = useTasks()
 
    const {
@@ -37,9 +38,7 @@ function App() {
       updateTodolist
    } = useTodolists(tasks,
       completelyRemoveTaskForTodolist,
-      (newTodolistId) => {
-         setTasks({...tasks, [newTodolistId]: []})
-      }
+      addStateForNewTodolist
    )
 
 

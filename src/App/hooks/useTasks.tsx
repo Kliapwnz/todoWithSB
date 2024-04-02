@@ -44,6 +44,9 @@ export function useTasks() {
       delete tasks[id]
       setTasks({...tasks})
    }
+   function addStateForNewTodolist (newTodolistId:string){
+      setTasks({...tasks, [newTodolistId]: []})
+   }
    return {
       tasks,
       setTasks,
@@ -51,6 +54,7 @@ export function useTasks() {
       removeTask,
       updateTask,
       changeTaskStatus,
-      completelyRemoveTaskForTodolist
+      completelyRemoveTaskForTodolist,
+      addStateForNewTodolist
    }
 }
