@@ -26,10 +26,7 @@ function useTodolists() {
    return [todolists, setTodolists] as const
 }
 
-function App() {
-
-   let [todolists, setTodolists] = useTodolists()
-
+function useTasks() {
    let [tasks, setTasks] = useState<TasksStateType>({
       [todolistID1]: [
          {id: v1(), title: 'HTML&CSS', isDone: true},
@@ -42,6 +39,13 @@ function App() {
          {id: v1(), title: 'GraphQL', isDone: false},
       ]
    })
+   return [tasks, setTasks] as const
+}
+
+function App() {
+
+   let [todolists, setTodolists] = useTodolists()
+   let [tasks, setTasks] = useTasks()
 
 
    const changeTaskStatus = (id: string, isDone: boolean, todolistID: string) => {
