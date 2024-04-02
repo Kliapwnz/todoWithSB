@@ -44,8 +44,8 @@ function useTasks() {
 
 function App() {
 
-   let [todolists, setTodolists] = useTodolists()
-   let [tasks, setTasks] = useTasks()
+   const [todolists, setTodolists] = useTodolists()
+   const [tasks, setTasks] = useTasks()
 
 
    const changeTaskStatus = (id: string, isDone: boolean, todolistID: string) => {
