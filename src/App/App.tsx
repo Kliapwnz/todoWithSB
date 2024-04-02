@@ -20,8 +20,6 @@ export type TasksStateType = {
 
 
 function App() {
-
-   const [todolists, setTodolists] = useTodolists()
    const {
       tasks,
       setTasks,
@@ -31,29 +29,15 @@ function App() {
       changeTaskStatus
    } = useTasks()
 
+   const {
+      todolists,
+      setTodolists,
+      changeFilter,
+      removeTodolist,
+      addTodolist,
+      updateTodolist
+   } = useTodolists(tasks, setTasks)
 
-   const changeFilter = (value: FilterValuesType, todolistId: string) => {
-      let todolist = todolists.find(el => el.id === todolistId)
-      if (todolist) {
-         todolist.filter = value
-         setTodolists([...todolists])
-      }
-   }
-   const removeTodolist = (id: string) => {
-      setTodolists(todolists.filter(el => el.id !== id))
-      delete tasks[id]
-      setTasks({...tasks})
-   }
-   const addTodolist = (title: string) => {
-      let newTodolistId = v1()
-      let newTodolist: TodolistsType = {id: newTodolistId, title: title, filter: "all"}
-      setTodolists([newTodolist, ...todolists])
-      setTasks({...tasks, [newTodolistId]: []})
-   }
-
-   const updateTodolist = (todolistId: string, title: string) => {
-      setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: title} : el))
-   }
 
    return (
       <div className="App">
