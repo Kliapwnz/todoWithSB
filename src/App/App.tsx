@@ -5,6 +5,7 @@ import {v1} from "uuid";
 import {AddItemForm} from "../AddItemForm";
 import {AppBarHelper} from "../AppBar";
 import {Container, Grid, Paper} from "@mui/material";
+import {todolistID1, todolistID2} from "./id-utils";
 
 export type FilterValuesType = "all" | "active" | "completed"
 export type TodolistsType = {
@@ -15,8 +16,7 @@ export type TodolistsType = {
 export type TasksStateType = {
    [key: string]: Array<TaskType>
 }
-let todolistID1 = v1()
-let todolistID2 = v1()
+
 
 function useTodolists() {
    let [todolists, setTodolists] = useState<Array<TodolistsType>>([
