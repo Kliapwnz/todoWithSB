@@ -15,18 +15,18 @@ export type TodolistsType = {
 export type TasksStateType = {
    [key: string]: Array<TaskType>
 }
+let todolistID1 = v1()
+let todolistID2 = v1()
 
 function useTodolists() {
    let [todolists, setTodolists] = useState<Array<TodolistsType>>([
       {id: todolistID1, title: 'KLIApwnz', filter: 'all'},
       {id: todolistID2, title: 'I try to learn JS', filter: 'all'},
    ])
-   return [todolists, setTodolists]
+   return [todolists, setTodolists] as const
 }
 
 function App() {
-   let todolistID1 = v1()
-   let todolistID2 = v1()
 
    let [todolists, setTodolists] = useTodolists()
 
