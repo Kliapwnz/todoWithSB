@@ -5,8 +5,8 @@ import {v1} from "uuid";
 import {AddItemForm} from "../AddItemForm";
 import {AppBarHelper} from "../AppBar";
 import {Container, Grid, Paper} from "@mui/material";
-import {useTodolists} from "./hooks/UseTodolists";
-import {useTasks} from "./hooks/UseTasks";
+import {useTodolists} from "./hooks/useTodolists";
+import {useTasks} from "./hooks/useTasks";
 
 export type FilterValuesType = "all" | "active" | "completed"
 export type TodolistsType = {
