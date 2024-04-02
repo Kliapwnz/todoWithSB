@@ -21,7 +21,6 @@ export type TasksStateType = {
 function App() {
    const {
       tasks,
-      setTasks,
       addTask,
       removeTask,
       updateTask,
