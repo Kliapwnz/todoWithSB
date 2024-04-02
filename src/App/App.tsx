@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './App.css';
-import {TaskType, Todolist} from "./Todolist";
+import '../App.css';
+import {TaskType, Todolist} from "../Todolist";
 import {v1} from "uuid";
-import {AddItemForm} from "./AddItemForm";
-import {AppBarHelper} from "./AppBar";
+import {AddItemForm} from "../AddItemForm";
+import {AppBarHelper} from "../AppBar";
 import {Container, Grid, Paper} from "@mui/material";
 
 export type FilterValuesType = "all" | "active" | "completed"

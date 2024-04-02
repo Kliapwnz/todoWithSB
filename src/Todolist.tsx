@@ -1,5 +1,5 @@
 import React, {memo, useCallback} from "react";
-import {FilterValuesType} from "./App";
+import {FilterValuesType} from "./App/App";
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
 import {Button, IconButton} from "@mui/material";
