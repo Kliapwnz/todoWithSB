@@ -3,7 +3,9 @@ import {todolistID1, todolistID2} from "../id-utils";
 import {FilterValuesType, TodolistsType} from "../App";
 import {v1} from "uuid";
 
-export function useTodolists(tasks:any, setTasks:any) {
+export function useTodolists(tasks: any,
+                             onTodolistRemoved: (id: string) => void,
+                             onTodolistAdded: (id: string) => void) {
    let [todolists, setTodolists] = useState<Array<TodolistsType>>([
       {id: todolistID1, title: 'KLIApwnz', filter: 'all'},
       {id: todolistID2, title: 'I try to learn JS', filter: 'all'},
@@ -17,21 +19,21 @@ export function useTodolists(tasks:any, setTasks:any) {
    }
    const removeTodolist = (id: string) => {
       setTodolists(todolists.filter(el => el.id !== id))
-      delete tasks[id]
-      setTasks({...tasks})
+      onTodolistRemoved(id)
    }
    const addTodolist = (title: string) => {
       let newTodolistId = v1()
       let newTodolist: TodolistsType = {id: newTodolistId, title: title, filter: "all"}
       setTodolists([newTodolist, ...todolists])
-      setTasks({...tasks, [newTodolistId]: []})
+      onTodolistAdded(newTodolistId)
+
    }
    const updateTodolist = (todolistId: string, title: string) => {
       setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: title} : el))
    }
 
-   return {todolists,
-      setTodolists,
+   return {
+      todolists,
       changeFilter,
       removeTodolist,
       addTodolist,

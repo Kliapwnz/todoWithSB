@@ -13,7 +13,7 @@ export type TodolistsType = {
    title: string,
    filter: FilterValuesType
 }
-export type TasksStateType = {x
+export type TasksStateType = {
    [key: string]: Array<TaskType>
 }
 
@@ -25,17 +25,22 @@ function App() {
       addTask,
       removeTask,
       updateTask,
-      changeTaskStatus
+      changeTaskStatus,
+      completelyRemoveTaskForTodolist
    } = useTasks()
 
    const {
       todolists,
-      setTodolists,
       changeFilter,
       removeTodolist,
       addTodolist,
       updateTodolist
-   } = useTodolists(tasks, setTasks)
+   } = useTodolists(tasks,
+      completelyRemoveTaskForTodolist,
+      (newTodolistId) => {
+         setTasks({...tasks, [newTodolistId]: []})
+      }
+   )
 
 
    return (

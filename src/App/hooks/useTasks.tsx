@@ -40,12 +40,17 @@ export function useTasks() {
          setTasks({...tasks})
       }
    }
+   function completelyRemoveTaskForTodolist (id:string) {
+      delete tasks[id]
+      setTasks({...tasks})
+   }
    return {
       tasks,
       setTasks,
       addTask,
       removeTask,
       updateTask,
-      changeTaskStatus
+      changeTaskStatus,
+      completelyRemoveTaskForTodolist
    }
 }
