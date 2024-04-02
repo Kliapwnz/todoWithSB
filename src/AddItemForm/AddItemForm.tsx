@@ -8,6 +8,7 @@ type AddItemFormPropsType = {
 }
 
 export const AddItemForm = memo((props: AddItemFormPropsType) => {
+
    const {
       title,
       onChangeHandler,
